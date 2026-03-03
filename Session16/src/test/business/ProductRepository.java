@@ -52,7 +52,7 @@ public class ProductRepository implements IRepository<Product>{
     }
 
     @Override
-    public List findAll() {
+    public List<Product> findAll() {
         return listProducts;
     }
 
