@@ -46,10 +46,15 @@ public class Main {
         Collections.sort(
                 productRepository.findAll(),
                 (o1, o2) -> Float.compare(
-                        o1.calculateFinalPrice(),
-                        o2.calculateFinalPrice()
-                )
-        );
+                        (float) o1.calculateFinalPrice(),
+                        (float) o2.calculateFinalPrice()
+                ));
+        System.out.println("\n===== DANH SÁCH SAU KHI SẮP XẾP =====");
+
+        for (Product product : productRepository.findAll()) {
+            product.displayInfo();
+            System.out.println("Thành tiền: " + product.calculateFinalPrice());
+        }
         // thống kê
         int electronicCount = 0;
         int foodCount = 0;
